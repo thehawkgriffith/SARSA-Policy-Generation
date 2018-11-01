@@ -55,11 +55,15 @@ class Agent():
                 print("it:", it)
             s = map1.all_states[0]
             map1.setState(s)
-            a, _ = max_dict(Q[s])
-            a = random_action(a)
-            epsilon = 0.1
-            while not gameOver(map1):
-                r = move(map1, a)
+            #map1.displayMap()
+            #sleep(0.3)   <-----------UNCOMMENT THESE AND THESE IF
+            a, _ = max_dict(Q[s])   # YOU WANT TO WATCH IT LEARN
+            a = random_action(a)        # 
+            epsilon = 0.1               # 
+            while not gameOver(map1):   #
+                r = move(map1, a)       #
+                #map1.displayMap()<-------------------------------
+                #sleep(0.3)
                 s2 = map1.currentState()
                 a2, _ = max_dict(Q[s2])
                 a2 = random_action(a2, 0.5/t)
